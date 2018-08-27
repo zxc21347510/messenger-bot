@@ -268,7 +268,7 @@ function handlePostback(sender_psid, received_postback)
 						{
 							"type":"phone_number",
 							"title":"聯絡我們",
-							"payload":process.env.phone_number
+							"payload":process.env.phone_number	//phone_number為環境變數，儲存按下按鈕後撥打的電話號碼
 						}
 					]
 				}
@@ -550,7 +550,7 @@ function checkWhich(sender_psid,choose)
 						{
 							"type":"phone_number",
 							"title":"聯絡我們",
-							"payload":process.env.phone_number
+							"payload":process.env.phone_number //phone_number為環境變數，儲存按下按鈕後撥打的電話號碼
 						}
 					]
 				}
