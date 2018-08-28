@@ -3,13 +3,12 @@
 //PAGE_ACCESS_TOKEN = process 中環境變數 PAGE_ACCESS_TOKEN
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
-// Imports dependencies and set up http server
+// Imports 相關 dependencies 並且設定 http server
 const 
   request = require('request'),
   express = require('express'),
   body_parser = require('body-parser'),
-  async = require("async"),
-  app = express().use(body_parser.json()); // creates express http server
+  app = express().use(body_parser.json()); // 建立express http server
 
 //如果 port=1337 或是 =process 環境變數 PORT 則監聽，且在 log 中印出 webhook is listening
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
