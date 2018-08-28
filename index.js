@@ -35,12 +35,12 @@ app.post('/webhook', (req, res) => {
 			let sender_psid = webhook_event.sender.id;
 			console.log('Sender ID: ' + sender_psid);
 			
-			// Check if the event is a message or postback and
-			// pass the event to the appropriate handler function
+			//如果事件是來自於messenger，則呼叫handleMessage function進行後續動作
 			if (webhook_event.message) 
 			{
 				handleMessage(sender_psid, webhook_event.message);   
 			} 
+			//如果事件是來自於postback，則呼叫handlePostback function進行後續動作
 			else if (webhook_event.postback) 
 			{
 				handlePostback(sender_psid, webhook_event.postback);
@@ -59,13 +59,13 @@ app.post('/webhook', (req, res) => {
 
 });
 
-// Accepts GET requests at the /webhook endpoint
+// 在/webhook端點接收GET要求
 app.get('/webhook', (req, res) => {
   
-	/** UPDATE YOUR VERIFY TOKEN **/
+	//VERIFY_TOKEN=自己process的訂閱權杖
 	const VERIFY_TOKEN = process.env.MESSAGER_VALIDATION_TOKEN;
   
-	// Parse params from the webhook verification request
+	// 解析來自於webhook的驗證請求中的變數
 	let mode = req.query['hub.mode'];
 	let token = req.query['hub.verify_token'];
 	let challenge = req.query['hub.challenge'];
