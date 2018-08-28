@@ -381,7 +381,7 @@ function checkWhich(sender_psid,choose)
 				"payload": 
 				{	
 					"is_reusable": true,
-					"url": "https://redirector.googlevideo.com/videoplayback?initcwndbps=256250&expire=1534507939&ei=Q2d2W_HHGMTdxgK1or_YAg&key=yt6&sparams=clen%2Cdur%2Cei%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpl%2Cratebypass%2Crequiressl%2Csource%2Cusequic%2Cexpire&c=WEB&mn=sn-25glenez%2Csn-h5q7dnld&mm=31%2C26&ip=195.154.200.89&ms=au%2Conr&requiressl=yes&pl=21&itag=18&mt=1534486198&dur=58.909&id=o-AB7yOW985ai8Qzm5J3BuONeFpCdzge8MYYD9JySMagEK&mime=video%2Fmp4&mv=m&ipbits=0&usequic=no&gir=yes&lmt=1462868525959698&signature=B0DA1936E21E29C7C015004B4D811A1CB5131ED2.784A351FF720D1BCFB06372D43D9F3E98614A5BC&source=youtube&ratebypass=yes&fvip=6&clen=3938385&title=AGfun%E4%B8%80%E5%88%86%E9%90%98%E7%89%B9%E8%89%B2%E4%BB%8B%E7%B4%B9"
+					"url": "https://redirector.googlevideo.com/videoplayback?key=yt6&clen=3938385&requiressl=yes&sparams=clen%2Cdur%2Cei%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpl%2Cratebypass%2Crequiressl%2Csource%2Cusequic%2Cexpire&gir=yes&ratebypass=yes&mt=1535437966&fvip=6&dur=58.909&pl=20&id=o-ANv-LOl3U6knArM7HC1QtAFqZcI1OrDzNVxeiCrQkare&initcwndbps=235000&mv=m&source=youtube&signature=D43FC700123FD57EFC4D93E751F7E95AAFA88A0E.0128DB706BAE16F415E698583295141EE1C72605&ms=au%2Conr&mime=video%2Fmp4&mn=sn-25ge7nsl%2Csn-h5q7dnld&ipbits=0&mm=31%2C26&itag=18&usequic=no&expire=1535459674&ip=195.154.200.89&lmt=1462868525959698&c=WEB&ei=-eyEW57RPNC6Vq-7ovgG&title=AGfun%E4%B8%80%E5%88%86%E9%90%98%E7%89%B9%E8%89%B2%E4%BB%8B%E7%B4%B9"
 				}
 			} 
 		}
