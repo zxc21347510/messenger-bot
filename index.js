@@ -70,19 +70,19 @@ app.get('/webhook', (req, res) => {
 	let token = req.query['hub.verify_token'];
 	let challenge = req.query['hub.challenge'];
 		
-	// Check if a token and mode were sent
+	// 如果有token以及mode送來
 	if (mode && token) 
 	{
-		// Check the mode and token sent are correct
+		// 確認送來的mode以及token是正確的
 		if (mode === 'subscribe' && token === VERIFY_TOKEN) 
 		{
-			// Respond with 200 OK and challenge token from the request
+			// 如果驗證通過，傳送 200 OK 
 			console.log('WEBHOOK_VERIFIED');
 			res.status(200).send(challenge);
 		} 
 		else
 		{
-			// Responds with '403 Forbidden' if verify tokens do not match
+			// 如果驗證權杖不符合，則傳送 403 Forbidden 
 			res.sendStatus(403);      
 		}
 	}
