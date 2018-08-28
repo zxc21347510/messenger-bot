@@ -594,6 +594,7 @@ function checkWhich(sender_psid,choose)
 		}
 	}
 	//如果為詢問產品說明書的問題
+	//回覆URL按鈕範本，讓使用者選擇要查看哪一個產品的說明書，按下按鈕後連結到有關該產品說明書的URL
 	else if(choose==='instructions')
 	{
 		response = 
@@ -631,6 +632,7 @@ function checkWhich(sender_psid,choose)
 		}
 	}
 	//如果為詢問產品照片的問題
+	//回覆按鈕範本，讓使用者選擇要觀看哪一個產品的照片
 	else if (choose==='picture')
 	{
 		response = 
