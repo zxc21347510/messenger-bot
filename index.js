@@ -13,13 +13,13 @@ const
 //如果 port=1337 或是 =process 環境變數 PORT 則監聽，且在 log 中印出 webhook is listening
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
-// Accepts POST requests at /webhook endpoint
+//在/webhook端點接收POST要求
 app.post('/webhook', (req, res) => {  
 
-	// Parse the request body from the POST
+	// 解析來自POST的request body
 	let body = req.body;
 
-	// Check the webhook event is from a Page subscription
+	// 確認webhook事件是來自於Page subscription
 	if (body.object === 'page') 
 	{
 
