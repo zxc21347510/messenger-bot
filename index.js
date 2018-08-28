@@ -89,6 +89,7 @@ app.get('/webhook', (req, res) => {
 });
 
 //使用handlePostback針對message回傳做動作
+//透過NLP中的資訊，設定回覆的response
 function handleMessage(sender_psid, received_message)  
 {
 	var check=-1;
@@ -96,6 +97,7 @@ function handleMessage(sender_psid, received_message)
 	let response;
 	
 	//如果回傳的nlp中的support==true && confidence>0.8 --> 呼叫checkWhich設定respose
+	//support --> 產品支援服務
 	let greeting = firstEntity(received_message.nlp, 'support');
 	if (greeting && greeting.confidence > 0.8) 
 	{
@@ -139,6 +141,7 @@ function handleMessage(sender_psid, received_message)
 	}
 	
 	//如果回傳的nlp中的controller==true && confidence>0.8 --> 呼叫checkWhich設定respose
+	//controller --> 遙控器的相關問題
 	greeting = firstEntity(received_message.nlp, 'controller')
 	if (greeting && greeting.confidence > 0.8) 
 	{
@@ -148,6 +151,7 @@ function handleMessage(sender_psid, received_message)
 	}
 	
 	//如果回傳的nlp中的AGfunfeature==true && confidence>0.8 --> 呼叫checkWhich設定respose
+	//AGfunfeature --> AGfun特色影片(Youtube上的影片)
 	greeting = firstEntity(received_message.nlp, 'AGfunfeature')
 	if (greeting && greeting.confidence > 0.8) 
 	{
@@ -157,6 +161,7 @@ function handleMessage(sender_psid, received_message)
 	}
 	
 	//如果回傳的nlp中的AGfuncontroller==true && confidence>0.8 --> 呼叫checkWhich設定respose
+	//AGfuncontroller --> AGfun特色影片(FB上的影片)
 	greeting = firstEntity(received_message.nlp, 'AGfuncontroller')
 	if (greeting && greeting.confidence > 0.8) 
 	{
@@ -166,6 +171,7 @@ function handleMessage(sender_psid, received_message)
 	}
 	
 	//如果回傳的nlp中的product==true && confidence>0.8 --> 呼叫checkWhich設定respose
+	//product --> 產品相關問題
 	greeting = firstEntity(received_message.nlp, 'product')
 	if (greeting && greeting.confidence > 0.8) 
 	{
@@ -175,6 +181,7 @@ function handleMessage(sender_psid, received_message)
 	}
 	
 	//如果回傳的nlp中的menu==true && confidence>0.8 --> 呼叫checkWhich設定respose
+	//menu --> 菜單
 	greeting = firstEntity(received_message.nlp, 'menu')
 	if (greeting && greeting.confidence > 0.8) 
 	{
@@ -184,6 +191,7 @@ function handleMessage(sender_psid, received_message)
 	}
 	
 	//如果回傳的nlp中的start==true && confidence>0.8 --> 呼叫checkWhich設定respose
+	//start --> 開始使用
 	greeting = firstEntity(received_message.nlp, 'start')
 	if (greeting && greeting.confidence > 0.8) 
 	{
@@ -193,6 +201,7 @@ function handleMessage(sender_psid, received_message)
 	}
 	
 	//如果回傳的nlp中的instructions==true && confidence>0.8 --> 呼叫checkWhich設定respose
+	//instructions --> 產品使用說明書
 	greeting = firstEntity(received_message.nlp, 'instructions')
 	if (greeting && greeting.confidence > 0.8) 
 	{
@@ -201,6 +210,8 @@ function handleMessage(sender_psid, received_message)
 		check=1;
 	}
 	
+	//如果回傳的nlp中的picture==true && confidence>0.8 --> 呼叫checkWhich設定respose
+	//picture --> 產品圖片
 	greeting = firstEntity(received_message.nlp, 'picture')
 	if (greeting && greeting.confidence > 0.8) 
 	{
@@ -334,6 +345,7 @@ function checkWhich(sender_psid,choose)
 		}
 	}
 	//如果為詢問遙控器的問題
+	//回覆URL按鈕範本，讓使用者選擇要查看哪一個關於遙控器的選項，按下按鈕後連結到相關的URL
 	else if(choose==='controller')
 	{
 		response = 
@@ -370,7 +382,7 @@ function checkWhich(sender_psid,choose)
 			}	
 		}
 	}
-	//如果為詢問AGfun特色的問題-->傳送影片可為youtube的影片，但url需要經過處理
+	//如果為詢問AGfun特色的問題-->傳送影片可為youtube的影片，但url需要經過處理(使用send API)
 	else if(choose==='AGfunfeature')
 	{
 		response = 
@@ -386,7 +398,7 @@ function checkWhich(sender_psid,choose)
 			} 
 		}
 	}
-	//如果為詢問AGFUN專利遙控器的問題-->傳送影片只可為facebook上的影片，但url可直接使用
+	//如果為詢問AGFUN專利遙控器的問題-->傳送影片只可為facebook上的影片，但url可直接使用(使用媒體範本)
 	else if(choose==='AGfuncontroller')
 	{
 		response = 
@@ -417,6 +429,7 @@ function checkWhich(sender_psid,choose)
 		}
 	}
 	//如果為詢問AGmini照片的問題
+	//以send API傳送圖片
 	else if(choose==='AGmini')
 	{
 		response = 
@@ -433,6 +446,7 @@ function checkWhich(sender_psid,choose)
 		}
 	}
 	//如果為詢問AGfun Box照片的問題
+	//以send API傳送圖片
 	else if(choose==='AGfun Box')
 	{
 		response = 
@@ -449,6 +463,7 @@ function checkWhich(sender_psid,choose)
 		}
 	}
 	//如果為詢問Remote照片的問題
+	//以send API傳送圖片
 	else if(choose==='Remote')
 	{
 		response = 
